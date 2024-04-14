@@ -2,14 +2,11 @@ package com.pranav.backend_sst.Services;
 
 import com.pranav.backend_sst.Models.Category;
 import com.pranav.backend_sst.Models.Product;
-import com.pranav.backend_sst.dtos.FakeStoreProductDto;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
+import com.pranav.backend_sst.Dtos.FakeStoreProductDto;
+import com.pranav.backend_sst.Exceptions.ProductException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 @Service
@@ -22,7 +19,7 @@ public class FakeStoreProductServices implements ProductService {
                         FakeStoreProductDto.class);
 
         if (fakeStoreProductDto == null) {
-            return null;
+            throw new ProductException(id, "Please pass a valid productId");
         }
 
         return convertFakeStoreProductDtoToProduct(fakeStoreProductDto);

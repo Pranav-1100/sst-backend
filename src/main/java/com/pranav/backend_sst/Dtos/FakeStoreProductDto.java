@@ -1,4 +1,4 @@
-package com.pranav.backend_sst.dtos;
+package com.pranav.backend_sst.Dtos;
 
 import lombok.Getter;
 import lombok.Setter;
